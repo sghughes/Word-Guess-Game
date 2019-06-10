@@ -11,7 +11,6 @@ var incorrectLetters = []; //Need to push incorrectly guessed letters to this ar
 
 var numOfGuessesRemaining = 10; //Allow 10 incorrect letter guess in each game
 
-var userGuess = document.getElementById('currentWord');
 
 
 
@@ -20,9 +19,13 @@ var userGuess = document.getElementById('currentWord');
 //displays "_" for each letter in the gameWord
 for (var i = 0; i<gameWord.length; i++) {  
     gameWordUnderscores.push('_');
+   
    };
 
 console.log(gameWordUnderscores);
+var userGuess = gameWordUnderscores.join(' ');
+console.log(userGuess);
+document.getElementById('currentWord').innerHTML = userGuess;
 
 //Captures letter key pressed by user and adds to array of correct letters guess or incorrect letters guessed. Replaces underscore with correct letter
 document.onkeyup = function(event) 
@@ -35,8 +38,11 @@ document.onkeyup = function(event)
     //console.log(true);
     correctLetters.push(pressedKey);
     //console.log(correctLetters);  
+    
     gameWordUnderscores[gameWord.indexOf(pressedKey)] = pressedKey;
-    //console.log(gameWordUnderscores);  
+    console.log(gameWordUnderscores);
+    document.getElementById('currentWord').innerHTML = gameWordUnderscores.join(' ');
+ 
     if (gameWordUnderscores.join('') === gameWord)
      {
         alert('you win!');
@@ -51,5 +57,7 @@ document.onkeyup = function(event)
     }
   
     };
+
+
 
   
