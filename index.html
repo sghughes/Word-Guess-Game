@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script type="text/javascript" src="assets/javascript/game.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
@@ -40,10 +41,12 @@
 
             <div class='col-md-3'>
                 <h3>Number of Wins: </h3> 
+                <h3 id='numOfWins'></h3> 
                 <h3>Current Word:</h3>
-                <h3 id='gameWord'></h3> 
+                <h3 id='currentWord'></h3>
                 <h3>Number of Guesses Remaining: </h3>
-                <h3>Letters Guessed: </h3>
+                <h3 id='remainingGuesses'></h3>
+                <h3>Letters Guessed:</h3>
                 <h3 id='lettersGuessed'></h3>              
             </div>
 
