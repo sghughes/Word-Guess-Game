@@ -12,9 +12,9 @@ var incorrectLetters = []; //Need to push incorrectly guessed letters to this ar
 var numOfGuessesRemaining = 10; //Allow 10 incorrect letter guess in each game
 
 
-
-
 //Functions:
+
+//need to add function to restart game
 
 //displays "_" for each letter in the gameWord
 for (var i = 0; i<gameWord.length; i++) {  
@@ -26,14 +26,35 @@ console.log(gameWordUnderscores);
 var userGuess = gameWordUnderscores.join(' ');
 console.log(userGuess);
 document.getElementById('currentWord').innerHTML = userGuess;
+document.getElementById('remainingGuesses').innerHTML = numOfGuessesRemaining;
+document.getElementById('numOfWins').innerHTML = wins;
 
 //Captures letter key pressed by user and adds to array of correct letters guess or incorrect letters guessed. Replaces underscore with correct letter
 document.onkeyup = function(event) 
 {
+  
+
     var pressedKey = String.fromCharCode(event.keyCode);
-    //console.log(pressedKey)
-    //console.log(gameWord.indexOf(pressedKey));
-    if(gameWord.indexOf(pressedKey) > -1)
+    console.log(pressedKey.type)
+    console.log(gameWord.indexOf(pressedKey));
+
+    if (event.keyCode >= 91 || event.keyCode <= 64) {
+    alert('Please type a letter key to make a guess');
+    }
+
+    else if (incorrectLetters.includes(pressedKey)) {
+       
+      alert('You already guessed that!');
+   }
+
+   else if (gameWordUnderscores.includes(pressedKey)) {
+       
+      alert('You already guessed that!');
+   }
+
+    
+
+    else if(gameWord.indexOf(pressedKey) > -1)
     {
     //console.log(true);
     correctLetters.push(pressedKey);
@@ -42,21 +63,43 @@ document.onkeyup = function(event)
     gameWordUnderscores[gameWord.indexOf(pressedKey)] = pressedKey;
     console.log(gameWordUnderscores);
     document.getElementById('currentWord').innerHTML = gameWordUnderscores.join(' ');
+   
+  
  
     if (gameWordUnderscores.join('') === gameWord)
      {
-        alert('you win!');
+        alert('You win!');
+        wins++;
+        document.getElementById('numOfWins').innerHTML = wins;
     }
     }
+
+    
+
+    
+
+   
     else 
     {
+   
     incorrectLetters.push(pressedKey);
+    document.getElementById('lettersGuessed').innerHTML = incorrectLetters;
     var numOfGuessesRemaining = 10 - incorrectLetters.length; //removes one from number of guesses remaining each time incorrect letter is typed.
-    //console.log(numOfGuessesRemaining);
     //console.log(incorrectLetters);
-    }
+    
+    if (numOfGuessesRemaining===0){
+       alert('You lose!');
+    };
+
+    console.log(numOfGuessesRemaining);
+    document.getElementById('remainingGuesses').innerHTML = numOfGuessesRemaining;
+    console.log(incorrectLetters);
+    
+   }
   
     };
+
+    
 
 
 
