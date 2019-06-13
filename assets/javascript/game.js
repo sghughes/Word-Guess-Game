@@ -29,7 +29,8 @@ console.log(gameWord);
 
 //function to restart game:
 function reset () {
-  currentWordHTML.textContent = randomWord ();
+  
+   currentWordHTML.textContent = randomWord ();
   console.log(gameWord);
 // for (var i = gameWordUnderscores.length; i>0; i--) {
 //    gameWordUnderscores.pop();
@@ -37,6 +38,7 @@ function reset () {
 // }
 gameWordSplit();
 console.log(gameWordArray);
+
 
 gameWordUnderscores = [];
 correctLetters = [];
@@ -59,8 +61,10 @@ numOfGuessesRemainingHTML.textContent = numOfGuessesRemaining;
 //    incorrectLetters.pop();
 //    console.log('incorrectletters:' + incorrectLetters);
 // }
-
-
+for (var i = 0; i<gameWord.length; i++) {  
+   gameWordUnderscores.push('_');
+   };
+   document.getElementById('currentWord').innerHTML = gameWordUnderscores.join(' ');
 
 }
 
