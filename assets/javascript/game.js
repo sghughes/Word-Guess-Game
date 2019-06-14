@@ -1,7 +1,7 @@
 //Define Variables:
 var wins=0; //Wins should start at 0 and increase by 1 after each win
 
-var wordOptions = ['CODE', 'GAME', 'PENCIL']; //Array of words that will be randomly selected for game 
+var wordOptions = ['CLIMB', 'SNOW', 'PEAK', 'CAMP', 'HIKE', 'TRAIL']; //Array of words that will be randomly selected for game 
 var gameWord = wordOptions[Math.floor(Math.random() * wordOptions.length)]; //generates random word from array
 console.log(gameWord); 
 var gameWordArray = [];
@@ -16,7 +16,7 @@ var currentWordHTML = document.getElementById('currentWord');
 var numOfGuessesRemainingHTML = document.getElementById('remainingGuesses');
 
 //Functions:
-//add start function
+
 
 function gameWordSplit () {
    gameWordArray = gameWord.split('');
@@ -32,10 +32,7 @@ function reset () {
   
    currentWordHTML.textContent = randomWord ();
   console.log(gameWord);
-// for (var i = gameWordUnderscores.length; i>0; i--) {
-//    gameWordUnderscores.pop();
-//    console.log(gameWordUnderscores);
-// }
+
 gameWordSplit();
 console.log(gameWordArray);
 
@@ -53,14 +50,7 @@ winsHTML.textContent = wins;
 currentWordHTML.textContent = userGuess;
 numOfGuessesRemainingHTML.textContent = numOfGuessesRemaining;
 
-// for (var j=correctLetters.length; j>0; j--){
-//    correctLetters.pop();
-//    console.log(correctLetters);
-// }
-// for (var k=incorrectLetters; k>0; k--){
-//    incorrectLetters.pop();
-//    console.log('incorrectletters:' + incorrectLetters);
-// }
+
 for (var i = 0; i<gameWord.length; i++) {  
    gameWordUnderscores.push('_');
    };
@@ -80,8 +70,6 @@ document.getElementById('currentWord').innerHTML = userGuess;
 document.getElementById('remainingGuesses').innerHTML = numOfGuessesRemaining;
 document.getElementById('numOfWins').innerHTML = wins;
 
-// function start(){}
-//start ()
 
 //Captures letter key pressed by user and converts from character code to string. 
 document.onkeyup = function(event) 
